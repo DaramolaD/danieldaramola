@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { navLinks, siteConfig } from "@/lib/constants";
+import { ContactNavLink } from "@/components/layout/ContactNavLink";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { ContactModalTrigger } from "@/components/ui/ContactModalTrigger";
+import { navLinks, siteConfig } from "@/lib/constants";
 
 export function SiteHeader() {
   return (
@@ -24,23 +26,19 @@ export function SiteHeader() {
           aria-label="Primary navigation"
         >
           {navLinks.map((link) => (
-            <Link
+            <ContactNavLink
               key={link.href}
               href={link.href}
+              label={link.label}
               className="whitespace-nowrap text-sm text-ink-muted transition-colors hover:text-ink"
-            >
-              {link.label}
-            </Link>
+            />
           ))}
         </nav>
 
         <div className="flex items-center justify-end gap-2 sm:gap-3">
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="hidden truncate text-sm text-ink-muted transition-colors hover:text-ink lg:inline xl:max-w-[14rem]"
-          >
-            {siteConfig.email}
-          </a>
+          <ContactModalTrigger className="hidden min-h-10 px-5 text-xs lg:inline-flex">
+            Let&apos;s talk
+          </ContactModalTrigger>
           <MobileNav />
         </div>
       </div>

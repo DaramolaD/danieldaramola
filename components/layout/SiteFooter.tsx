@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { footerLinks, siteConfig } from "@/lib/constants";
 import { TextLink } from "@/components/ui/TextLink";
 
@@ -14,12 +15,20 @@ export function SiteFooter() {
             <span className="text-accent">worth building?</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-ink-muted md:text-lg">
-            I&apos;m accepting new projects. Reach out and let&apos;s start a
-            conversation about yours.
+            {siteConfig.availability}. Tell me what you&apos;re building, scope,
+            timeline, and where you need an engineer across the stack.
           </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button href={`mailto:${siteConfig.email}`}>
+              Email me to get started
+            </Button>
+            <Button href="/work" variant="secondary">
+              Browse case studies
+            </Button>
+          </div>
           <a
             href={`mailto:${siteConfig.email}`}
-            className="mt-10 inline-block font-serif text-2xl text-ink underline-offset-4 transition-colors hover:text-accent hover:underline md:text-4xl"
+            className="mt-8 inline-block font-serif text-xl text-ink underline-offset-4 transition-colors hover:text-accent hover:underline md:text-2xl"
           >
             {siteConfig.email}
           </a>
@@ -46,11 +55,11 @@ export function SiteFooter() {
             </nav>
           </div>
 
-          <ul className="flex flex-col gap-2 text-sm">
+          <ul className="flex flex-col gap-3 text-base md:text-sm">
             <li>
               <TextLink
                 href={siteConfig.social.linkedin}
-                showArrow={false}
+                arrow="external"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -59,18 +68,18 @@ export function SiteFooter() {
             </li>
             <li>
               <TextLink
-                href={siteConfig.social.twitter}
-                showArrow={false}
+                href={siteConfig.social.x}
+                arrow="external"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Twitter
+                X
               </TextLink>
             </li>
             <li>
               <TextLink
                 href={siteConfig.social.github}
-                showArrow={false}
+                arrow="external"
                 target="_blank"
                 rel="noopener noreferrer"
               >

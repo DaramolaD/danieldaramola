@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FadeUp } from "@/components/motion/FadeUp";
+import { Button } from "@/components/ui/Button";
+import { siteConfig } from "@/lib/constants";
 import { Parallax } from "@/components/motion/Parallax";
 import { RevealWords } from "@/components/motion/RevealWords";
 import { faqItems } from "@/lib/faq";
@@ -81,6 +84,26 @@ export function FaqSection() {
             ))}
           </div>
         </div>
+
+        <FadeUp delay={0.2} className="mt-16 border-t border-border pt-12 md:mt-20">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+            Still deciding?
+          </p>
+          <p className="mt-4 max-w-lg font-serif text-2xl tracking-tight text-ink md:text-3xl">
+            The fastest way to know if we&apos;re a fit is a short email.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Button href={`mailto:${siteConfig.email}`}>
+              Ask a question
+            </Button>
+            <Link
+              href="/#contact"
+              className="text-sm font-medium text-ink-muted transition-colors hover:text-ink"
+            >
+              Contact details →
+            </Link>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );

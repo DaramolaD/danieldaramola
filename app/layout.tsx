@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
+import { ContactShell } from "@/components/layout/ContactShell";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { createMetadata, organizationJsonLd } from "@/lib/seo";
@@ -39,9 +40,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <ContactShell>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </ContactShell>
       </body>
     </html>
   );

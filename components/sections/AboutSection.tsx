@@ -1,5 +1,6 @@
 import { FadeUp } from "@/components/motion/FadeUp";
 import { RevealWords } from "@/components/motion/RevealWords";
+import { TextLink } from "@/components/ui/TextLink";
 
 export function AboutSection() {
   return (
@@ -38,6 +39,11 @@ export function AboutSection() {
                 I work end-to-end with founders and teams architecture through
                 shipping, and the iteration that follows launch. One engineer
                 across the whole arc.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.4}>
+              <p className="pt-2">
+                <TextLink href="/#contact">Start a conversation</TextLink>
               </p>
             </FadeUp>
           </div>

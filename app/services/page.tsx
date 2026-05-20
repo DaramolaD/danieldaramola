@@ -1,8 +1,7 @@
 import { Section } from "@/components/layout/Section";
-import { Button } from "@/components/ui/Button";
+import { ServicesCta } from "@/components/sections/ServicesCta";
 import { services } from "@/lib/services";
 import { createMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/constants";
 
 export const metadata = createMetadata({
   title: "Services",
@@ -34,11 +33,7 @@ export default function ServicesPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-16">
-          <Button href={`mailto:${siteConfig.email}`}>
-            Book a discovery call
-          </Button>
-        </div>
+        <ServicesCta />
       </Section>
     </main>
   );

@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { FadeUp } from "@/components/motion/FadeUp";
+import { Button } from "@/components/ui/Button";
+import { TextLink } from "@/components/ui/TextLink";
 import { Parallax } from "@/components/motion/Parallax";
 import { RevealWords } from "@/components/motion/RevealWords";
 import { siteConfig } from "@/lib/constants";
@@ -45,26 +46,21 @@ export function Hero() {
           </FadeUp>
 
           <FadeUp delay={0.35}>
-            <div className="mt-12 flex flex-wrap items-center gap-8">
-              <Link
-                href="/#work"
-                className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-medium text-ink transition-colors hover:text-accent"
-              >
-                Selected work
-                <span
-                  aria-hidden
-                  className="inline-block transition-transform group-hover:translate-x-1.5"
-                >
-                  →
-                </span>
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-sm text-ink-muted transition-colors hover:text-ink"
-              >
-                Book a call
-              </Link>
+            <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center">
+              <Button href={`mailto:${siteConfig.email}`}>
+                Start a project
+              </Button>
+              <Button href="/#work" variant="secondary">
+                View selected work
+              </Button>
             </div>
+            <p className="mt-6 text-sm text-ink-muted">
+              {siteConfig.availability}. Or{" "}
+              <TextLink href="/#contact" showArrow={false}>
+                jump to contact
+              </TextLink>
+              .
+            </p>
           </FadeUp>
         </div>
 

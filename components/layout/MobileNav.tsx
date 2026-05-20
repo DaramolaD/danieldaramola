@@ -7,6 +7,7 @@ import {
 } from "motion/react";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { ContactNavLink } from "@/components/layout/ContactNavLink";
 import { navLinks, siteConfig } from "@/lib/constants";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -125,13 +126,12 @@ export function MobileNav() {
                       variants={itemVariants}
                       transition={itemTransition}
                     >
-                      <Link
+                      <ContactNavLink
                         href={link.href}
-                        className="block rounded-sm px-2 py-3.5 font-serif text-2xl text-ink transition-colors hover:bg-surface hover:text-accent"
-                        onClick={close}
-                      >
-                        {link.label}
-                      </Link>
+                        label={link.label}
+                        className="block w-full rounded-sm px-2 py-3.5 text-left font-serif text-2xl text-ink transition-colors hover:bg-surface hover:text-accent"
+                        onNavigate={close}
+                      />
                     </motion.div>
                   ))}
                 </motion.nav>

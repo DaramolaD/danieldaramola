@@ -1,4 +1,5 @@
 import { AboutSection } from "@/components/sections/AboutSection";
+import { CtaBand } from "@/components/sections/CtaBand";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/constants";
 
@@ -13,18 +14,20 @@ export default function AboutPage() {
   return (
     <main id="main-content" className="pt-8">
       <AboutSection />
-      <section className="mx-auto max-w-[1400px] px-6 pb-32 md:px-10 md:pb-44">
-        <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Want to work together? Email{" "}
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="border-b border-foreground text-foreground transition-colors hover:text-primary"
-          >
-            {siteConfig.email}
-          </a>
-          .
-        </p>
-      </section>
+      <CtaBand
+        eyebrow="Collaborate"
+        title={
+          <>
+            Open to the right{" "}
+            <span className="italic text-accent">builds and partnerships.</span>
+          </>
+        }
+        description="If you need an engineer who ships end-to-end and stays after launch, send a short note about your product and timeline."
+        primaryLabel="Get in touch"
+        primaryHref={`mailto:${siteConfig.email}?subject=Collaboration`}
+        secondaryLabel="View my work"
+        secondaryHref="/work"
+      />
     </main>
   );
 }

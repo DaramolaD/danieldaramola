@@ -1,5 +1,7 @@
+import { CtaBand } from "@/components/sections/CtaBand";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
+import { siteConfig } from "@/lib/constants";
 import { projects } from "@/lib/projects";
 import { createMetadata } from "@/lib/seo";
 
@@ -30,6 +32,20 @@ export default function WorkPage() {
           ))}
         </div>
       </div>
+      <CtaBand
+        eyebrow="Similar work?"
+        title={
+          <>
+            Let&apos;s talk about{" "}
+            <span className="italic text-accent">your product.</span>
+          </>
+        }
+        description="Share where you are today, idea, MVP, or production, and what you need from engineering."
+        primaryLabel="Start a conversation"
+        primaryHref={`mailto:${siteConfig.email}?subject=Project%20inquiry`}
+        secondaryLabel="Back to home"
+        secondaryHref="/"
+      />
     </main>
   );
 }

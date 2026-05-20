@@ -15,9 +15,9 @@ export const siteConfig = {
   email: "hello@danieldaramola.co",
   availability: "Available for new projects",
   social: {
-    linkedin: "https://linkedin.com/in/danieldaramola",
-    twitter: "https://twitter.com/danieldaramola",
-    github: "https://github.com/danieldaramola",
+    linkedin: "https://www.linkedin.com/in/daramoladaniel/",
+    x: "https://x.com/dantripled",
+    github: "https://github.com/DaramolaD",
   },
 } as const;
 
