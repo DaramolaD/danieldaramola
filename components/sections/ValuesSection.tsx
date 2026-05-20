@@ -11,6 +11,7 @@ import {
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import chessKnight from "@/public/chessknight.jpeg";
 import controlModule from "@/public/controlmodule.jpeg";
+import compassWrongGlove from "@/public/compasswornglove.jpeg";
 import mechanicalWatch from "@/public/mechanicalWatch.jpeg";
 
 type ValueSlide = {
@@ -46,9 +47,19 @@ const slides: ValueSlide[] = [
     headline: "I build products with real usage in mind.",
     subtext:
       "I think beyond launch screens into workflows, edge cases, team operations, and everyday usability.",
+    image: compassWrongGlove,
+    imageAlt:
+      "Compass and worn glove tools for navigation and real-world use",
+  },
+  {
+    eyebrow: "What matters to me",
+    headline:
+      "I'm interested in work that creates real impact, not just visual polish.",
+    subtext:
+      "The strongest products improve how people work, communicate, and solve problems daily.",
     image: controlModule,
     imageAlt:
-      "Control module and interface products built for real-world use",
+      "Control module and interface work that creates everyday impact",
   },
 ];
 
@@ -250,6 +261,36 @@ function useValueSlideMotion(
   return { opacity, y, scale, filter, pointerEvents };
 }
 
+function ValueSlideLayer({
+  slide,
+  index,
+  scrollYProgress,
+  priority = false,
+}: {
+  slide: ValueSlide;
+  index: number;
+  scrollYProgress: MotionValue<number>;
+  priority?: boolean;
+}) {
+  const motion = useValueSlideMotion(scrollYProgress, index, slides.length);
+
+  return (
+    <ValuePanelFullscreen
+      priority={priority}
+      slide={slide}
+      style={{
+        opacity: motion.opacity,
+        y: motion.y,
+        scale: motion.scale,
+        filter: motion.filter,
+        pointerEvents: motion.pointerEvents,
+        zIndex: 10 + index,
+      }}
+      className="origin-center will-change-transform"
+    />
+  );
+}
+
 function StaticValues({ children }: { children: ReactNode }) {
   return (
     <section
@@ -269,36 +310,26 @@ function ScrollValues() {
     offset: ["start start", "end end"],
   });
 
-  const slide0 = useValueSlideMotion(scrollYProgress, 0, slides.length);
-  const slide1 = useValueSlideMotion(scrollYProgress, 1, slides.length);
-  const slide2 = useValueSlideMotion(scrollYProgress, 2, slides.length);
-  const slideMotions = [slide0, slide1, slide2];
-
   const progressScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const scrollHeight = `${slides.length * 100}vh`;
 
   return (
     <section
       ref={containerRef}
       id="values"
       aria-labelledby="values-heading"
-      className="relative isolate h-[300vh]"
+      className="relative isolate"
+      style={{ height: scrollHeight }}
     >
       <div className="sticky top-16 z-10 h-[calc(100dvh-4rem)] max-h-[calc(100dvh-4rem)] overflow-hidden bg-canvas">
         <div className="relative h-full w-full">
           {slides.map((slide, i) => (
-            <ValuePanelFullscreen
+            <ValueSlideLayer
               key={slide.headline}
-              priority={i === 0}
               slide={slide}
-              style={{
-                opacity: slideMotions[i].opacity,
-                y: slideMotions[i].y,
-                scale: slideMotions[i].scale,
-                filter: slideMotions[i].filter,
-                pointerEvents: slideMotions[i].pointerEvents,
-                zIndex: 10 + i,
-              }}
-              className="origin-center will-change-transform"
+              index={i}
+              scrollYProgress={scrollYProgress}
+              priority={i === 0}
             />
           ))}
         </div>

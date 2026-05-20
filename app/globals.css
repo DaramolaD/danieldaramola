@@ -41,6 +41,13 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Crisp header when mobile menu is open (no double blur with overlay) */
+html[data-mobile-menu-open] .site-header {
+  background: var(--color-canvas);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 ::selection {
   background: color-mix(in srgb, var(--color-accent) 25%, transparent);
 }
