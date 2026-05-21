@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { ContactShell } from "@/components/layout/ContactShell";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -28,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const jsonLd = organizationJsonLd();
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
     <html
@@ -35,6 +37,7 @@ export default function RootLayout({
       id="top"
       className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="min-h-full flex flex-col font-sans">
         <script
           type="application/ld+json"
