@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { ContactShell } from "@/components/layout/ContactShell";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { createMetadata, organizationJsonLd } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -29,7 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const jsonLd = organizationJsonLd();
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const analyticsId = process.env.NEXT_PUBLIC_GTM_ID?.trim();
+
+  const isGtm = analyticsId?.startsWith("GTM-");
+  const isGa4 = analyticsId?.startsWith("G-");
 
   return (
     <html
@@ -37,7 +41,12 @@ export default function RootLayout({
       id="top"
       className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
-      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
+      {isGtm && analyticsId ? (
+        <GoogleTagManager gtmId={analyticsId} />
+      ) : null}
+      {isGa4 && analyticsId ? (
+        <GoogleAnalytics gaId={analyticsId} />
+      ) : null}
       <body className="min-h-full flex flex-col font-sans">
         <script
           type="application/ld+json"
@@ -48,6 +57,7 @@ export default function RootLayout({
           {children}
           <SiteFooter />
         </ContactShell>
+        <Analytics />
       </body>
     </html>
   );
