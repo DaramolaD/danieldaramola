@@ -53,10 +53,7 @@ export function RevealWords({
         /^\s+$/.test(w) ? (
           <span key={i}>{w}</span>
         ) : (
-          <span
-            key={i}
-            className="inline-block overflow-hidden align-bottom leading-[1.12] pb-[0.08em]"
-          >
+          <span key={i} className="inline-block align-bottom leading-[1.12]">
             <motion.span variants={word} className="inline-block">
               {w}
             </motion.span>

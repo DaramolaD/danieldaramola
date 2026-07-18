@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/constants";
 import { getAdjacentProjects } from "@/lib/projects";
-import type { Project } from "@/types/project";
+import type { Project } from "@/lib/projectsReal";
 
 function DetailBlock({
   label,
@@ -28,7 +28,9 @@ function DetailBlock({
 function MetaItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="border-t border-border pt-5">
-      <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">{label}</p>
+      <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+        {label}
+      </p>
       <p className="mt-2 text-sm font-medium text-ink md:text-base">{value}</p>
     </div>
   );
@@ -50,17 +52,17 @@ export function ProjectDetail({ project }: { project: Project }) {
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
           {project.n} — {project.kind} · {project.year}
         </p>
-        <h1 className="mt-4 max-w-4xl font-serif text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-tight text-ink">
+        <h1 className="mt-4 max-w-full font-serif text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-tight text-ink">
           {project.title}
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
+        <p className="mt-6 max-w-full text-base leading-relaxed text-ink-muted md:text-lg">
           {project.summary}
         </p>
 
         <dl className="mt-10 grid gap-x-10 gap-y-0 sm:grid-cols-2 lg:grid-cols-4">
           <MetaItem label="Role" value={project.role} />
           <MetaItem label="Timeline" value={project.timeline} />
-          <MetaItem label="Team" value={project.team} />
+          <MetaItem label="Built for" value={project.team} />
           <MetaItem label="Status" value={project.status} />
         </dl>
 
@@ -101,7 +103,7 @@ export function ProjectDetail({ project }: { project: Project }) {
               {outcome.label}
             </p>
             <p className="mt-2 font-serif text-2xl tracking-tight text-ink md:text-3xl">
-              {outcome.value}
+              {outcome.metric}
             </p>
           </div>
         ))}
@@ -118,6 +120,106 @@ export function ProjectDetail({ project }: { project: Project }) {
             {project.solution}
           </p>
         </DetailBlock>
+
+        {project.gallery?.length ? (
+          <section className="mt-2 md:col-span-2 md:mt-6">
+            <div className="flex items-end justify-between gap-6">
+              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+                Product gallery
+              </h2>
+              <p className="text-xs tabular-nums text-ink-muted">
+                {String(project.gallery.length).padStart(2, "0")} screens
+              </p>
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-4 space-y-6 md:space-y-8">
+              {project.gallery.map((item, index) => (
+                <figure
+                  key={item.alt}
+                  className="overflow-hidden m-0 rounded-sm border border-black/8 bg-surface shadow-[0_16px_50px_-30px_rgba(26,26,26,0.3)]"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    sizes="(max-width: 1400px) 100vw, 1280px"
+                    className="h-auto w-full"
+                  />
+                  {/* <figcaption className="flex gap-4 border-t border-border px-4 py-3 text-xs text-ink-muted md:px-5">
+                    <span className="tabular-nums">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span>{item.alt}</span>
+                  </figcaption> */}
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {/* ============================ */}
+
+        <DetailBlock label="Overview">
+          <div className="space-y-5">
+            {project.overview.map((item) => (
+              <p
+                key={item}
+                className="text-base leading-relaxed text-ink-muted"
+              >
+                {item}
+              </p>
+            ))}
+          </div>
+        </DetailBlock>
+
+        <DetailBlock label="Challenges">
+          <ul className="space-y-4">
+            {project.challenge.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-2 size-1.5 rounded-full bg-accent" />
+                <p>{item}</p>
+              </li>
+            ))}
+          </ul>
+        </DetailBlock>
+        {/* ------- */}
+
+        <DetailBlock label="Key Features">
+          <ul className="grid gap-3 md:grid-cols-2">
+            {project.features.map((feature) => (
+              <li key={feature} className="rounded border border-border p-4">
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </DetailBlock>
+
+        <DetailBlock label="Approach">
+          <div className="grid gap-6 md:grid-cols-2">
+            {project.approach.map((item) => (
+              <div key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </DetailBlock>
+
+        <DetailBlock label="Project Impact">
+          <ul className="space-y-4">
+            {project.impact.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </DetailBlock>
+
+        <DetailBlock label="Lessons Learned">
+          <ul className="space-y-4">
+            {project.learnings.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </DetailBlock>
+
+        {/* ------ */}
       </div>
 
       <div className="mt-16 grid gap-14 border-t border-border pt-16 md:mt-20 md:grid-cols-12 md:gap-16 md:pt-20">

@@ -4,7 +4,7 @@ import { FadeUp } from "@/components/motion/FadeUp";
 import { RevealWords } from "@/components/motion/RevealWords";
 
 type SectionHeadingProps = {
-  label: string;
+  label?: string;
   line1: string;
   line2: string;
   as?: "h1" | "h2";

@@ -5,8 +5,9 @@ import { ContactShell } from "@/components/layout/ContactShell";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { createMetadata, organizationJsonLd } from "@/lib/seo";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { Contact } from "@/components/sections/Contact";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
@@ -41,12 +42,8 @@ export default function RootLayout({
       id="top"
       className={`${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
     >
-      {isGtm && analyticsId ? (
-        <GoogleTagManager gtmId={analyticsId} />
-      ) : null}
-      {isGa4 && analyticsId ? (
-        <GoogleAnalytics gaId={analyticsId} />
-      ) : null}
+      {isGtm && analyticsId ? <GoogleTagManager gtmId={analyticsId} /> : null}
+      {isGa4 && analyticsId ? <GoogleAnalytics gaId={analyticsId} /> : null}
       <body className="min-h-full flex flex-col font-sans">
         <script
           type="application/ld+json"
@@ -55,7 +52,8 @@ export default function RootLayout({
         <ContactShell>
           <SiteHeader />
           {children}
-          <SiteFooter />
+          {/* <SiteFooter /> */}
+          <Contact />
         </ContactShell>
         <Analytics />
       </body>

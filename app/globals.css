@@ -24,8 +24,11 @@
   --color-border: var(--color-border);
   --color-surface: var(--color-surface);
   --color-foreground: var(--color-ink);
+  --color-background: var(--color-canvas);
   --color-muted-foreground: var(--color-ink-muted);
   --color-primary: var(--color-accent);
+  --color-terracotta: var(--color-accent);
+  --color-terracotta-soft: oklch(0.88 0.05 55);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 }
@@ -62,6 +65,28 @@ html[data-mobile-menu-open] .site-header {
   font-family: var(--font-serif);
 }
 
+.font-meta {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -78,7 +103,8 @@ html[data-mobile-menu-open] .site-header {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up {
+  .animate-fade-up,
+  .animate-rise {
     animation: none;
     opacity: 1;
     transform: none;

@@ -1,4 +1,5 @@
 import { AboutSection } from "@/components/sections/AboutSection";
+import { AboutSection2 } from "@/components/sections/AboutSection2";
 import { ApproachSection } from "@/components/sections/ApproachSection";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -9,38 +10,25 @@ import { ProjectGrid } from "@/components/sections/ProjectGrid";
 import { ValuesSection } from "@/components/sections/ValuesSection";
 import { faqJsonLd } from "@/lib/seo";
 import { faqItems } from "@/lib/faq";
+import { ProjectGrid2 } from "@/components/sections/ProjectGrid2";
+import { Experience } from "@/components/sections/Experience";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   const faqLd = faqJsonLd(faqItems);
 
   return (
-    <main id="main-content">
+    <main id="main-content" className="overflow-x-clip">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <Hero />
       <MarqueeBar />
-      {/* <LogoCloud /> */}
-      <AboutSection />
-      <ProjectGrid />
-      <CtaBand
-        id="mid-cta"
-        eyebrow="Next step"
-        title={
-          <>
-            Have a product to ship{" "}
-            <span className="italic text-accent">or improve?</span>
-          </>
-        }
-        description="I work with founders and teams on full-stack builds, platform work, and the iteration after launch."
-        primaryLabel="Discuss your project"
-        secondaryLabel="See how I work"
-        secondaryHref="/#approach"
-      />
+      <AboutSection2 />
+      <ProjectGrid2 />
+      <Experience />
       <ValuesSection />
-      <ApproachSection />
-      <FaqSection />
     </main>
   );
 }

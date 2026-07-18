@@ -8,24 +8,33 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  console.log(
+    "PROJECT SLUGS:",
+    projects.map((p) => p.slug),
+  );
+  return projects.map((p) => ({
+    slug: p.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const project = getProject(slug);
+
   if (!project) return {};
 
   return createMetadata({
-    title: `${project.title} — ${project.kind}`,
-    description: project.summary,
+    title: `${project.name} — ${project.tag}`,
+    description: project.tagline,
     path: `/work/${project.slug}`,
   });
 }
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
+
   const project = getProject(slug);
+
   if (!project) notFound();
 
   const jsonLd = projectJsonLd(project);
@@ -34,8 +43,11 @@ export default async function ProjectPage({ params }: PageProps) {
     <main id="main-content" className="bg-canvas pt-8 md:pt-12">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
       />
+
       <div className="container-site pb-[var(--section-y)]">
         <ProjectDetail project={project} />
       </div>

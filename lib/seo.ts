@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/constants";
+import { Project } from "./projectsReal";
 
 type PageSeo = {
   title?: string;
@@ -58,24 +59,18 @@ export function organizationJsonLd() {
   };
 }
 
-export function projectJsonLd(project: {
-  title: string;
-  summary: string;
-  slug: string;
-  year: string;
-  kind: string;
-  image: string;
-}) {
+export function projectJsonLd(project: Project) {
   const url = `${siteConfig.url}/work/${project.slug}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: project.title,
-    description: project.summary,
+    name: project.name,
+    description: project.tagline,
     url,
     dateCreated: project.year,
-    genre: project.kind,
-    image: project.image,
+    genre: project.tag,
+    image: project.image.src, // StaticImageData -> string
     author: {
       "@type": "Person",
       name: siteConfig.name,
