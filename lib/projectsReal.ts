@@ -2,6 +2,7 @@ import projectSytemap from "@/public/project/gtextlandhomescreen.png";
 import projectSytemapOverview from "@/public/project/gtextlandoverview.png";
 import projectSytemaplayout from "@/public/project/gtextlandlayout.png";
 import projectSytemapDesign from "@/public/project/gtextlanddesign.png";
+import projectSytemapEditPlot from "@/public/project/editestatPlot.png";
 import projectSytemapMapLayout from "@/public/project/gtextlandmaplayout.png";
 import projectStationMag from "@/public/project/stationmag.png";
 import projectStationMagOverview from "@/public/project/stationMagOverview.png";
@@ -9,7 +10,7 @@ import projectStationMagAllStation from "@/public/project/allStations.png";
 import projectStationMag2 from "@/public/project/stationMag2.png";
 import projectStationMag3 from "@/public/project/stationMag3.png";
 import projectEstateOS from "@/public/project/project-fintech.jpg";
-import projectGTextFarm from "@/public/project/project-health.jpg";
+import projectGTextFarm from "@/public/project/gtextFarm.png";
 
 import { StaticImageData } from "next/image";
 
@@ -123,19 +124,23 @@ export const projects: Project[] = [
     gallery: [
       {
         image: projectSytemapMapLayout,
-        alt: "StationMag centralized management, all station, monitoring, analytics and role-based operations interface",
+        alt: "Sytemap interactive estate map showing property locations and plot layout information",
       },
       {
         image: projectSytemapDesign,
-        alt: "StationMag fuel operations overview dashboard presented inside the product website",
+        alt: "Sytemap estate design and property planning interface",
       },
       {
         image: projectSytemapOverview,
-        alt: "StationMag centralized management, monitoring, analytics and role-based operations interface",
+        alt: "Sytemap real estate operations overview dashboard",
       },
       {
         image: projectSytemaplayout,
-        alt: "StationMag fuel operations dashboard presented inside the product website",
+        alt: "Sytemap estate layout showing available plots and development structure",
+      },
+      {
+        image: projectSytemapEditPlot,
+        alt: "Sytemap plot editing interface for updating estate plot details and availability",
       },
     ],
 
