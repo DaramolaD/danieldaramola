@@ -8,7 +8,7 @@ export function ServicesGrid() {
       id="services"
       label="02 / Services"
       title="What I help teams ship"
-      intro="Strategy through launch — focused on outcomes, not deliverable theater."
+      intro="Strategy through launch, focused on real outcomes and production delivery."
     >
       <ul className="grid gap-6 sm:grid-cols-2">
         {services.map((service) => (

@@ -1,37 +1,32 @@
 "use client";
-import { ReactNode, useEffect, useRef, useState } from "react";
+
+import { motion } from "motion/react";
+import type { ReactNode } from "react";
 
 export function Reveal({
   children,
   delay = 0,
+  className,
+  y = 24,
 }: {
   children: ReactNode;
   delay?: number;
+  className?: string;
+  y?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "-40px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
   return (
-    <div
-      ref={ref}
-      style={{ animationDelay: `${delay}ms` }}
-      className={shown ? "animate-rise" : undefined}
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.7,
+        delay: delay > 1 ? delay / 1000 : delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

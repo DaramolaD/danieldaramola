@@ -13,10 +13,10 @@ export function SiteHeader() {
       >
         Skip to main content
       </a>
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6 lg:grid lg:grid-cols-3 lg:px-10">
+      <div className="mx-auto flex h-16 max-w-[1360px] items-center justify-between gap-4 px-6 md:px-10 lg:grid lg:grid-cols-3">
         <Link
           href="/"
-          className="min-w-0 truncate font-serif text-base tracking-tight text-ink sm:text-lg lg:text-xl"
+          className="min-w-0 truncate font-serif text-lg tracking-tight text-ink sm:text-xl"
         >
           {siteConfig.name}
         </Link>

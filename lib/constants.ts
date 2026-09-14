@@ -1,19 +1,19 @@
 export const siteConfig = {
   name: "Daniel Daramola",
-  tagline: "Software engineering & product development",
+  tagline: "Software Engineer | React, TypeScript, Python (FastAPI), MERN & SaaS Products",
   description:
-    "Software engineer shipping full products from zero — healthcare SaaS, logistics platforms, fintech dashboards. Code that works. Products that stick.",
-  heroStatus: "Product engineer",
+    "Software engineer with 3+ years building SaaS products end-to-end: React/Next.js frontends backed by Node.js, Express, and Python (FastAPI) services, PostgreSQL, and MongoDB.",
+  heroStatus: "Full-Stack Software Engineer",
   heroHeadline: {
-    line1: "I build software",
-    line2: "people actually use.",
+    line1: "Engineering products",
+    line2: "that power real operations.",
   },
   heroBio:
-    "Software engineer and product builder specialising in SaaS, logistics, fintech and healthcare. I help founders and teams turn rough ideas into shipped, reliable products.",
-  portraitCaption: "Daniel, studio — winter 2025",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://danieldaramola.com",
-  email: "hello@danieldaramola.co",
-  availability: "Currently building TransOpsync and open to select projects",
+    "Full-stack engineer with 3+ years building end-to-end SaaS platforms, React/Next.js frontends, and Node.js / Python (FastAPI) backends. Experienced owning features from database schema design through production deployment.",
+  portraitCaption: "Daniel Daramola",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://danieldaramola.vercel.app",
+  email: "dandaramola.d@gmail.com",
+  availability: "Available for full-time roles & engineering contracts",
   social: {
     linkedin: "https://www.linkedin.com/in/daramoladaniel/",
     x: "https://x.com/dantripled",
@@ -23,14 +23,14 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "/work", label: "Work" },
-  { href: "/#approach", label: "Approach" },
+  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
 export const footerLinks = [
   { href: "/work", label: "Work" },
-  { href: "/#approach", label: "Approach" },
+  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ] as const;

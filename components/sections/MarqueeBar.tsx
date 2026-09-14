@@ -1,59 +1,94 @@
-import {
-  allMarqueeLabels,
-  marqueeItems,
-  marqueeItemsRow2,
-} from "@/lib/marquee";
+"use client";
 
-type MarqueeRowProps = {
-  items: readonly string[];
-  duplicate?: boolean;
-  bandId: string;
-};
+import { allMarqueeLabels } from "@/lib/marquee";
+import { motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
 
-function MarqueeTrack({ items, duplicate, bandId }: MarqueeRowProps) {
+export function MarqueeBar() {
+  const [isPaused, setIsPaused] = useState(false);
+  const prefersReduced = useReducedMotion();
+
+  const items = [
+    "Next.js & React 19",
+    "Python (FastAPI)",
+    "Node.js & Express",
+    "TypeScript & MERN",
+    "PostgreSQL & Supabase",
+    "MongoDB & Mongoose",
+    "TanStack Query & Zustand",
+    "Flutterwave Payments",
+    "Leaflet & Mapbox",
+    "Multi-Tenant SaaS Architecture",
+    "Role-Based Access Control",
+  ];
+
   return (
-    <ul
-      className="marquee-track flex shrink-0 items-center"
-      aria-hidden={duplicate}
+    <section
+      aria-label="Core Capabilities & Technologies"
+      className="relative overflow-hidden border-y border-border bg-canvas-subtle/50 py-3.5 select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      {items.map((label) => (
-        <li
-          key={`${bandId}-${duplicate ? "dup-" : ""}${label}`}
-          className="flex items-center"
+      <p className="sr-only">{allMarqueeLabels.join(", ")}</p>
+
+      {/* Left and Right Edge Fade Gradients for an editorial seamless aesthetic */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-canvas to-transparent sm:w-28" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-canvas to-transparent sm:w-28" />
+
+      <div className="flex w-full overflow-hidden">
+        <motion.div
+          className="flex w-max items-center will-change-transform"
+          animate={
+            prefersReduced
+              ? {}
+              : {
+                x: isPaused ? undefined : ["0%", "-50%"],
+              }
+          }
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 28,
+              ease: "linear",
+            },
+          }}
         >
-          <span className="whitespace-nowrap px-6 text-[0.625rem] font-medium uppercase tracking-[0.26em] text-ink-muted sm:px-8 sm:text-[0.6875rem] sm:tracking-[0.28em]">
-            {label}
-          </span>
-          <StarSeparator />
-        </li>
-      ))}
-    </ul>
-  );
-}
+          {/* Track 1 */}
+          <div className="flex shrink-0 items-center gap-8 pr-8">
+            {items.map((label, idx) => (
+              <div
+                key={`track1-${label}-${idx}`}
+                className="flex items-center gap-8 whitespace-nowrap"
+              >
+                <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-ink-muted transition-colors hover:text-ink">
+                  {label}
+                </span>
+                <StarSeparator />
+              </div>
+            ))}
+          </div>
 
-function MarqueeRow({
-  items,
-  direction,
-  bandId,
-}: {
-  items: readonly string[];
-  direction: "forward" | "reverse";
-  bandId: string;
-}) {
-  const innerClass =
-    direction === "reverse"
-      ? "marquee-inner marquee-inner--reverse"
-      : "marquee-inner";
-
-  return (
-    <div className="marquee overflow-hidden py-2 sm:py-2.5">
-      <div className={`${innerClass} flex w-max`}>
-        <MarqueeTrack items={items} bandId={bandId} />
-        <MarqueeTrack items={items} bandId={bandId} duplicate />
+          {/* Track 2 (Duplicate for infinite seamless wrap) */}
+          <div className="flex shrink-0 items-center gap-8 pr-8" aria-hidden>
+            {items.map((label, idx) => (
+              <div
+                key={`track2-${label}-${idx}`}
+                className="flex items-center gap-8 whitespace-nowrap"
+              >
+                <span className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-ink-muted transition-colors hover:text-ink">
+                  {label}
+                </span>
+                <StarSeparator />
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
+
 
 function StarSeparator() {
   return (
@@ -65,37 +100,8 @@ function StarSeparator() {
         fill="currentColor"
         className="opacity-80"
       >
-        <path d="M5 0 6.2 3.8 10 5 6.2 6.2 5 10 3.8 6.2 0 5 3.8 3.8Z" />
+        <path d="M5 0 L6.2 3.8 10 5 6.2 6.2 5 10 3.8 6.2 0 5 3.8 3.8Z" />
       </svg>
     </span>
-  );
-}
-
-export function MarqueeBar() {
-  return (
-    <section
-      aria-label="Capabilities"
-      className="relative overflow-hidden border-y border-border bg-canvas"
-    >
-      <p className="sr-only">{allMarqueeLabels.join(", ")}</p>
-
-      <div className="marquee-cross group">
-        <div className="marquee-cross__band marquee-cross__band--forward">
-          <MarqueeRow
-            items={marqueeItems}
-            direction="forward"
-            bandId="band-1"
-          />
-        </div>
-
-        <div className="marquee-cross__band marquee-cross__band--reverse">
-          <MarqueeRow
-            items={marqueeItemsRow2}
-            direction="reverse"
-            bandId="band-2"
-          />
-        </div>
-      </div>
-    </section>
   );
 }

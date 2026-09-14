@@ -50,7 +50,7 @@ export function ProjectDetail({ project }: { project: Project }) {
         </Link>
 
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
-          {project.n} — {project.kind} · {project.year}
+          {project.n} · {project.kind} · {project.year}
         </p>
         <h1 className="mt-4 max-w-full font-serif text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.08] tracking-tight text-ink">
           {project.title}

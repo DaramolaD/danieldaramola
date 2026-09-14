@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (!project) return {};
 
   return createMetadata({
-    title: `${project.name} — ${project.tag}`,
+    title: `${project.name} | ${project.tag}`,
     description: project.tagline,
     path: `/work/${project.slug}`,
   });

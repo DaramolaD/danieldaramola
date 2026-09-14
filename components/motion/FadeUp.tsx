@@ -10,7 +10,7 @@ export function FadeUp({
   children,
   delay = 0,
   className,
-  y = 16,
+  y = 20,
 }: {
   children: ReactNode;
   delay?: number;
@@ -22,8 +22,8 @@ export function FadeUp({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>

@@ -1,384 +1,109 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  type MotionStyle,
-  type MotionValue,
-} from "motion/react";
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import chessKnight from "@/public/chessknight.jpeg";
-import controlModule from "@/public/controlmodule.jpeg";
-import compassWrongGlove from "@/public/compasswornglove.jpeg";
-import mechanicalWatch from "@/public/mechanicalWatch.jpeg";
-
-type ValueSlide = {
-  eyebrow: string;
-  headline: string;
-  subtext: string;
-  image: StaticImageData;
-  imageAlt: string;
-};
-
-const slides: ValueSlide[] = [
-  {
-    eyebrow: "What I optimize for",
-    headline: "I value products that age well.",
-    subtext:
-      "Clear systems, thoughtful structure, and maintainable experiences usually outperform trends over time.",
-    image: mechanicalWatch,
-    imageAlt:
-      "Close-up of a mechanical watch craftsmanship that lasts",
-  },
-  {
-    eyebrow: "How I think about product",
-    headline:
-      "I care about how products work, not just how they look.",
-    subtext:
-      "Great experiences come from understanding users, systems, and business goals together.",
-    image: chessKnight,
-    imageAlt:
-      "Chess knight on a board strategy, systems, and how pieces fit together",
-  },
-  {
-    eyebrow: "What I build for",
-    headline: "I build products with real usage in mind.",
-    subtext:
-      "I think beyond launch screens into workflows, edge cases, team operations, and everyday usability.",
-    image: compassWrongGlove,
-    imageAlt:
-      "Compass and worn glove tools for navigation and real-world use",
-  },
-  {
-    eyebrow: "What matters to me",
-    headline:
-      "I'm interested in work that creates real impact, not just visual polish.",
-    subtext:
-      "The strongest products improve how people work, communicate, and solve problems daily.",
-    image: controlModule,
-    imageAlt:
-      "Control module and interface work that creates everyday impact",
-  },
-];
-
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  return reduced;
-}
-
-const contentCardClassName =
-  "max-w-lg rounded-md border border-border bg-white p-6 shadow-[0_12px_40px_-14px_rgba(26,26,26,0.14)] md:max-w-md md:p-7 lg:max-w-xl";
-
-function ValueCopy({
-  slide,
-  className,
-  onGlass = false,
-}: {
-  slide: ValueSlide;
-  className?: string;
-  onGlass?: boolean;
-}) {
-  return (
-    <div className={className}>
-      <p
-        className={`text-xs font-medium uppercase tracking-[0.22em] ${
-          onGlass ? "text-accent" : "text-ink-muted"
-        }`}
-      >
-        {slide.eyebrow}
-      </p>
-      <h2
-        className={`mt-3 font-serif leading-[1.12] tracking-tight md:mt-4 ${
-          onGlass
-            ? "text-[clamp(1.4rem,2.9vw,2.35rem)] text-ink"
-            : "text-[clamp(1.35rem,2.8vw,2.25rem)] text-ink"
-        }`}
-      >
-        {slide.headline}
-      </h2>
-      <p
-        className={`mt-4 max-w-md leading-relaxed ${
-          onGlass
-            ? "text-[0.9375rem] text-[#3a3a3a] md:text-base"
-            : "text-sm text-ink-muted md:text-[0.9375rem]"
-        }`}
-      >
-        {slide.subtext}
-      </p>
-    </div>
-  );
-}
-
-function ValuePanel({
-  slide,
-  style,
-  className,
-}: {
-  slide: ValueSlide;
-  style?: MotionStyle;
-  className?: string;
-}) {
-  return (
-    <motion.div
-      style={style}
-      className={`grid items-center gap-12 md:grid-cols-12 md:gap-16 ${className ?? ""}`}
-    >
-      <div className="md:col-span-5 lg:col-span-5">
-        <p className="text-xs uppercase tracking-[0.22em] text-ink-muted">
-          {slide.eyebrow}
-        </p>
-        <h2 className="mt-6 font-serif text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.12] tracking-tight text-ink">
-          {slide.headline}
-        </h2>
-        <p className="mt-8 max-w-md text-base leading-relaxed text-ink-muted">
-          {slide.subtext}
-        </p>
-      </div>
-
-      <div className="md:col-span-7 lg:col-span-7">
-        <div className="overflow-hidden rounded-sm border border-black/8 bg-[#ebe4dc] shadow-[0_8px_30px_-12px_rgba(26,26,26,0.12)]">
-          <div className="relative aspect-4/5 w-full sm:aspect-16/10 md:aspect-4/5">
-            <Image
-              src={slide.image}
-              alt={slide.imageAlt}
-              fill
-              sizes="(max-width: 768px) 100vw, 58vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function ValuePanelFullscreen({
-  slide,
-  style,
-  className,
-  priority = false,
-}: {
-  slide: ValueSlide;
-  style?: MotionStyle;
-  className?: string;
-  priority?: boolean;
-}) {
-  return (
-    <motion.div
-      style={style}
-      className={`absolute inset-0 overflow-hidden ${className ?? ""}`}
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={slide.image}
-          alt={slide.imageAlt}
-          fill
-          sizes="100vw"
-          quality={90}
-          className="object-cover"
-          priority={priority}
-        />
-      </div>
-
-      <div className="relative z-10 flex h-full items-end pb-18 md:items-center md:pb-13">
-        <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10">
-          <ValueCopy
-            onGlass
-            slide={slide}
-            className={contentCardClassName}
-          />
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function useValueSlideMotion(
-  scrollYProgress: MotionValue<number>,
-  index: number,
-  total: number,
-) {
-  const segment = 1 / total;
-  const enterStart = Math.max(0, index * segment - 0.02);
-  const enterEnd = index * segment + 0.1;
-  const exitStart = (index + 1) * segment - 0.1;
-  const exitEnd = (index + 1) * segment;
-  const isFirst = index === 0;
-  const isLast = index === total - 1;
-
-  const opacity = useTransform(
-    scrollYProgress,
-    isFirst
-      ? [0, exitStart, exitEnd]
-      : isLast
-        ? [enterStart, enterEnd, 1]
-        : [enterStart, enterEnd, exitStart, exitEnd],
-    isFirst ? [1, 1, 0] : isLast ? [0, 1, 1] : [0, 1, 1, 0],
-  );
-
-  const y = useTransform(
-    scrollYProgress,
-    isFirst
-      ? [0, exitStart, exitEnd]
-      : isLast
-        ? [enterStart, enterEnd, 1]
-        : [enterStart, enterEnd, exitStart, exitEnd],
-    isFirst ? [0, 0, -24] : isLast ? [28, 0, 0] : [28, 0, 0, -24],
-  );
-
-  const scale = useTransform(
-    scrollYProgress,
-    isFirst
-      ? [0, exitStart, exitEnd]
-      : isLast
-        ? [enterStart, enterEnd, 1]
-        : [enterStart, enterEnd, exitStart, exitEnd],
-    isFirst ? [1, 1, 0.97] : isLast ? [0.97, 1, 1] : [0.97, 1, 1, 0.97],
-  );
-
-  const blur = useTransform(
-    scrollYProgress,
-    isLast ? [0, 1] : [exitStart, exitEnd],
-    isLast ? [0, 0] : [0, 6],
-  );
-
-  const filter = useTransform(blur, (v) => (v > 0 ? `blur(${v}px)` : "none"));
-  const pointerEvents = useTransform(opacity, (o) =>
-    o > 0.5 ? "auto" : "none",
-  );
-
-  return { opacity, y, scale, filter, pointerEvents };
-}
-
-function ValueSlideLayer({
-  slide,
-  index,
-  scrollYProgress,
-  priority = false,
-}: {
-  slide: ValueSlide;
-  index: number;
-  scrollYProgress: MotionValue<number>;
-  priority?: boolean;
-}) {
-  const motion = useValueSlideMotion(scrollYProgress, index, slides.length);
-
-  return (
-    <ValuePanelFullscreen
-      priority={priority}
-      slide={slide}
-      style={{
-        opacity: motion.opacity,
-        y: motion.y,
-        scale: motion.scale,
-        filter: motion.filter,
-        pointerEvents: motion.pointerEvents,
-        zIndex: 10 + index,
-      }}
-      className="origin-center will-change-transform"
-    />
-  );
-}
-
-function StaticValues({ children }: { children: ReactNode }) {
-  return (
-    <section
-      id="values"
-      aria-labelledby="values-heading"
-      className="mx-auto max-w-[1400px] px-6 py-32 md:px-10 md:py-44"
-    >
-      <div className="space-y-32 md:space-y-44">{children}</div>
-    </section>
-  );
-}
-
-function ScrollValues() {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const progressScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const scrollHeight = `${slides.length * 100}vh`;
-
-  return (
-    <section
-      ref={containerRef}
-      id="values"
-      aria-labelledby="values-heading"
-      className="relative isolate"
-      style={{ height: scrollHeight }}
-    >
-      <div className="sticky top-16 z-10 h-[calc(100dvh-4rem)] max-h-[calc(100dvh-4rem)] overflow-hidden bg-canvas">
-        <div className="relative h-full w-full">
-          {slides.map((slide, i) => (
-            <ValueSlideLayer
-              key={slide.headline}
-              slide={slide}
-              index={i}
-              scrollYProgress={scrollYProgress}
-              priority={i === 0}
-            />
-          ))}
-        </div>
-
-        <div
-          className="absolute inset-x-0 bottom-0 z-20 flex items-center gap-3 border-t border-border bg-white px-6 py-4 md:px-10"
-          aria-hidden
-        >
-          <div className="h-0.5 flex-1 overflow-hidden rounded-full bg-black/10">
-            <motion.div
-              className="h-full w-full origin-left rounded-full bg-accent"
-              style={{ scaleX: progressScale }}
-            />
-          </div>
-          <p className="shrink-0 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-[#3a3a3a]">
-            Scroll
-          </p>
-        </div>
-      </div>
-
-      <h2 id="values-heading" className="sr-only">
-        What I optimize for in product work
-      </h2>
-    </section>
-  );
-}
+import { FadeUp } from "@/components/motion/FadeUp";
+import { SectionLabel } from "./SectionLabel";
 
 export function ValuesSection() {
-  const reducedMotion = usePrefersReducedMotion();
+  const pillars = [
+    {
+      num: "01",
+      title: "End-to-End Type Safety & Data Contracts",
+      subtitle: "Schema-first engineering",
+      body: "From database tables to client forms, every payload is strictly typed and validated using TypeScript and Zod. This eliminates silent runtime bugs and makes API evolution predictable.",
+      highlights: ["Python (FastAPI)", "Next.js & TypeScript", "PostgreSQL / Alembic", "MongoDB / Mongoose"],
+    },
+    {
+      num: "02",
+      title: "Domain Modeling for Real-World Operations",
+      subtitle: "Built for physical workflows",
+      body: "Whether handling fuel station dispensing logs, tourism booking multi-role profiles, or delivery fleet dispatch, I model software directly against real physical operations and edge cases.",
+      highlights: ["Multi-Tenant SaaS", "RBAC Permissions", "Flutterwave Payments", "Audit Workflows"],
+    },
+    {
+      num: "03",
+      title: "High-Density, Responsive Interfaces",
+      subtitle: "Performance meets clarity",
+      body: "Dashboards with dozens of operational data points need to load instantly and stay readable. I build fast, accessible component systems that keep complex metrics digestible for operators.",
+      highlights: ["TanStack Query & State", "Leaflet & Mapbox", "Radix UI & Tailwind", "Responsive Dashboards"],
+    },
+    {
+      num: "04",
+      title: "Maintainable & Team-Ready Codebases",
+      subtitle: "Engineering discipline",
+      body: "Code should be clear, modular, and easy for any engineer to inherit. I avoid unnecessary framework bloat, establish clean module boundaries, and prioritize readability.",
+      highlights: ["Modular Services", "Vercel & Render CI/CD", "Offline-First Sync", "Clean Documentation"],
+    },
+  ];
 
-  if (reducedMotion) {
-    return (
-      <StaticValues>
-        {slides.map((slide, i) => (
-          <div key={slide.headline}>
-            {i === 0 ? (
+  return (
+    <section
+      id="philosophy"
+      aria-labelledby="philosophy-heading"
+      className="border-t border-border bg-canvas-subtle/40"
+    >
+      <div className="mx-auto max-w-[1360px] px-6 py-20 md:px-10 md:py-28">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <FadeUp>
+              <SectionLabel index="04">Engineering Philosophy</SectionLabel>
+            </FadeUp>
+            <FadeUp delay={0.1}>
               <h2
-                id="values-heading"
-                className="sr-only"
+                id="philosophy-heading"
+                className="mt-6 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.12] tracking-tight text-ink max-w-2xl"
               >
-                What I optimize for in product work
+                Principles for building{" "}
+                <span className="italic text-accent">resilient software.</span>
               </h2>
-            ) : null}
-            <ValuePanel slide={slide} />
+            </FadeUp>
           </div>
-        ))}
-      </StaticValues>
-    );
-  }
+          <FadeUp delay={0.15}>
+            <p className="max-w-md text-sm leading-relaxed text-ink-muted">
+              How I approach architecture, code quality, and user experience to ensure systems remain dependable as they scale.
+            </p>
+          </FadeUp>
+        </div>
 
-  return <ScrollValues />;
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {pillars.map((pillar, i) => (
+            <FadeUp key={pillar.title} delay={0.1 + i * 0.08}>
+              <div className="group flex h-full flex-col justify-between rounded-2xl border border-border/90 bg-white p-7 shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-md md:p-8">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-semibold text-accent">
+                      {pillar.num}
+                    </span>
+                    <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-ink-muted">
+                      {pillar.subtitle}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-4 font-serif text-2xl font-normal leading-snug text-ink group-hover:text-accent transition-colors">
+                    {pillar.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                    {pillar.body}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-border/70 pt-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {pillar.highlights.map((h) => (
+                      <span
+                        key={h}
+                        className="rounded border border-border/80 bg-canvas-subtle px-2 py-0.5 font-mono text-[0.6875rem] text-ink-soft"
+                      >
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

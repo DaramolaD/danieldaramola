@@ -1,50 +1,39 @@
 import { FadeUp } from "@/components/motion/FadeUp";
-import { RevealWords } from "@/components/motion/RevealWords";
 import { TextLink } from "@/components/ui/TextLink";
+import { SectionLabel } from "./SectionLabel";
 
 export function AboutSection() {
   return (
     <section
       id="about"
-      className="mx-auto max-w-[1400px] px-6 py-32 md:px-10 md:py-44"
+      className="mx-auto max-w-[1360px] px-6 py-20 md:px-10 md:py-28"
     >
-      <div className="grid gap-16 md:grid-cols-12">
-        <div className="md:col-span-4">
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-4">
           <FadeUp>
-            <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              01 — About
-            </p>
+            <SectionLabel index="01">About & Background</SectionLabel>
           </FadeUp>
         </div>
-        <div className="md:col-span-8">
-          <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-[1.1] tracking-tight text-foreground">
-            <RevealWords className="block">
-              Most launches fade before the product earns trust.
-            </RevealWords>
-            <RevealWords className="block italic text-primary" delay={0.15}>
-              I stay for what comes after.
-            </RevealWords>
-          </h2>
-          <div className="mt-12 max-w-2xl space-y-6 text-base leading-relaxed text-muted-foreground">
+        <div className="lg:col-span-8">
+          <h1 className="font-serif text-[clamp(2.25rem,4.5vw,3.75rem)] leading-[1.1] tracking-tight text-ink">
+            Building software with deep attention to{" "}
+            <span className="italic text-accent">reliability and architecture.</span>
+          </h1>
+          <div className="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-ink-muted">
+            <FadeUp delay={0.1}>
+              <p>
+                I&apos;m Daniel Daramola, a full-stack software engineer based in Lagos, Nigeria. Over the past three years, I&apos;ve engineered production systems across PropTech, fuel station operations, logistics dispatch, and interactive SaaS tools.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.15}>
+              <p>
+                My focus centers on complete product architecture: modeling resilient database schemas, building typed API contracts, crafting intuitive dashboard experiences, and ensuring production stability post-launch.
+              </p>
+            </FadeUp>
             <FadeUp delay={0.2}>
-              <p>
-                I&apos;m a software engineer. I&apos;ve shipped full products from
-                zero healthcare SaaS, logistics platforms, fintech dashboards. The
-                work is usually quiet: a stable release, a flow that holds under
-                load, a product that still makes sense six months in.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.3}>
-              <p>
-                I work end-to-end with founders and teams architecture through
-                shipping, and the iteration that follows launch. One engineer
-                across the whole arc.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.4}>
-              <p className="pt-2">
+              <div className="pt-2">
                 <TextLink href="/#contact">Start a conversation</TextLink>
-              </p>
+              </div>
             </FadeUp>
           </div>
         </div>
