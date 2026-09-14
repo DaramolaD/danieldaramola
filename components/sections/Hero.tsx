@@ -91,7 +91,7 @@ export function Hero() {
                     </span>
                   </div>
                   <div className="font-mono text-[0.6875rem] text-accent">
-                    Lagos, NG (UTC+1)
+                    Remote · Worldwide (UTC+1)
                   </div>
                 </figcaption>
               </Parallax>

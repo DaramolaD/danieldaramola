@@ -79,9 +79,9 @@ export function Contact() {
                 Location &amp; Availability
               </div>
               <div className="mt-2 text-sm text-canvas/80">
-                Lagos, Nigeria (UTC+1)
+                Remote First (UTC+1)
                 <span className="block text-xs text-canvas/50">
-                  Available for worldwide remote contracts
+                  Available for global teams &amp; remote contracts
                 </span>
               </div>
             </div>

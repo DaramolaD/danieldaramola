@@ -7,7 +7,7 @@ export function Experience() {
       role: "Founder & Product Engineer",
       company: "TransOpSync",
       period: "2026 - Present",
-      location: "Lagos, NG",
+      location: "Remote / Product Lead",
       body: "Architecting a multi-tenant logistics SaaS platform for SMB delivery fleets. Designed dispatcher consoles, driver workflows, and live tracking experiences with offline-first sync and custom address parsing.",
       stack: ["Next.js", "Node.js", "Supabase", "PostgreSQL/PostGIS", "Socket.io", "Mapbox"],
     },
@@ -23,7 +23,7 @@ export function Experience() {
       role: "Full-Stack Developer",
       company: "ISEYAA & Ministry of Culture",
       period: "2026",
-      location: "Ogun State / Remote",
+      location: "Remote / Contract",
       body: "Engineered tourism & commerce marketplace end-to-end (guides, ticketing, marketplace). Implemented multi-role business profiles, Flutterwave payments, httpOnly JWT session auth, and Alembic DB migrations.",
       stack: ["Next.js", "TypeScript", "Python (FastAPI)", "PostgreSQL", "Flutterwave", "Render"],
     },
@@ -31,7 +31,7 @@ export function Experience() {
       role: "Product Engineer",
       company: "GText Holdings (GText Projects)",
       period: "Dec 2024 - June 2026",
-      location: "Lagos, NG",
+      location: "Full-Time",
       body: "Built real estate SaaS ecosystem: GTextLand portal with Leaflet/GeoJSON plot maps and installment checkouts, GTextPay wallet workflows, and GTextFarm investor reporting dashboards.",
       stack: ["Next.js", "TypeScript", "TanStack Query", "Leaflet", "React Hook Form", "Zod", "MongoDB"],
     },
@@ -72,7 +72,7 @@ export function Experience() {
                 <Reveal key={e.company} delay={60 + i * 60}>
                   <li className="relative">
                     <span className="absolute -left-[31px] sm:-left-[39px] top-1.5 h-3 w-3 rounded-full border-2 border-canvas bg-accent" />
-                    
+
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                       <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent">
                         {e.period}
