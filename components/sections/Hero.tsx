@@ -9,10 +9,10 @@ import heroImg from "@/public/heroImg.png";
 
 export function Hero() {
   const stats = [
-    { value: "3+ yrs", label: "Building SaaS products end-to-end" },
-    { value: "Full-Stack", label: "React / Next.js · FastAPI · Node.js" },
-    { value: "Databases", label: "PostgreSQL · MongoDB · Supabase" },
-    { value: "Domains", label: "Logistics · PropTech · Tourism · Fintech" },
+    { value: "Production", label: "End-to-end SaaS & platform delivery" },
+    { value: "Full-Stack", label: "Next.js · FastAPI · Node.js" },
+    { value: "Data & Systems", label: "PostgreSQL · MongoDB · PostGIS · Redis" },
+    { value: "Specialty", label: "Multi-tenant SaaS · RBAC · Real-time systems" },
   ];
 
   return (

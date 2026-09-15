@@ -22,7 +22,7 @@ export function ProjectGrid2() {
           </div>
           <Reveal delay={120}>
             <p className="max-w-md text-sm leading-relaxed text-ink-muted">
-              Deep dives into architecture, complex domain workflows, API integrations, and outcomes delivered across real-world systems.
+              Real systems built for real operational workflows, detailing the architecture decisions and outcomes behind each one.
             </p>
           </Reveal>
         </div>

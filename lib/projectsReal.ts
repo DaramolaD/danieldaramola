@@ -95,13 +95,13 @@ export const projects: Project[] = [
     title: "Sytemap Real Estate Operations Platform",
 
     tagline:
-      "Multi-role real estate operations platform for estate discovery, plot sales, payments, documents and internal workflows.",
+      "Estate agents and buyers had no shared system, with deals happening mostly over phone calls and WhatsApp. Built a multi-role platform unifying plot discovery, instalment checkouts, and document management across buyers, agents, managers, and admins. One system, five user types, zero data leakage between roles.",
 
     summary:
       "An API-integrated real estate management platform connecting property discovery, client purchasing, estate administration, agent commissions and operational dashboards.",
 
     problem:
-      "Real estate companies often manage property listings, client payments, documentation, plot allocation and agent activities through disconnected tools, making daily operations difficult to track.",
+      "Estate agents and buyers had no shared system, with deals happening mostly over phone calls and WhatsApp. Built a multi-role platform unifying plot discovery, instalment checkouts, and document management across buyers, agents, managers, and admins.",
 
     role: "Product (Frontend) Engineer",
 
@@ -193,11 +193,11 @@ export const projects: Project[] = [
     ],
 
     impact: [
-      "Centralized estate operations across 5+ user roles",
+      "Replaced fragmented agent-buyer communication with a unified multi-role workflow",
 
-      "Built plot-level  discovery, purchase and payment workflow",
+      "Built plot-level discovery with map-based selection, instalment checkout, and document generation",
 
-      "Unified client, agent and admin processes",
+      "Implemented role-based access across 5 user types with scoped data visibility per role",
     ],
 
     overview: [
@@ -365,13 +365,13 @@ export const projects: Project[] = [
     title: "StationMag Fuel Operations Management Platform",
 
     tagline:
-      "Operations management platform helping fuel station operators manage stations, pumps, transactions, pricing and analytics from one dashboard.",
+      "Fuel station operators were managing dispensing logs, pricing changes, and inventory in spreadsheets across multiple sites. Replaced it with a real-time typed dashboard across 13 operational modules (pumps, dispensing, pricing, transactions, inventory, and audit reports) with role-based access for station managers, supervisors, and admins.",
 
     summary:
       "A fuel station management platform designed to centralize operational visibility across stations, pumps, transactions, pricing workflows, reporting and user access control.",
 
     problem:
-      "Fuel operators often manage station activity across disconnected systems, making it difficult to monitor revenue, fuel dispensing, transaction accuracy, pump activity and operational performance.",
+      "Fuel station operators were managing dispensing logs, pricing changes, and inventory in spreadsheets across multiple sites, creating data inaccuracies and reporting bottlenecks.",
 
     role: "Frontend Engineer",
 
@@ -453,11 +453,11 @@ export const projects: Project[] = [
     ],
 
     impact: [
-      "Built operational modules for stations, pumps, pricing, transaction, reports etc",
+      "Engineered a typed data layer covering 13 operational modules with export-ready reporting",
 
-      "Created role-based workflows for different users",
+      "Built role-based workflows scoped per user type so no operator sees data outside their remit",
 
-      "Developed reporting and analytics experiences with export-ready reporting cut manual report time",
+      "Replaced manual logs with a real-time dashboard that handles multi-site operations from one view",
     ],
 
     overview: [
@@ -639,13 +639,13 @@ export const projects: Project[] = [
     title: "GTextFarm Cooperative Poultry Operations Platform",
 
     tagline:
-      "Interactive poultry operations platform concept for farm monitoring, analytics and stakeholder transparency.",
+      "Farm investors had no visibility into operations, relying solely on phone calls and PDFs. Built an interactive monitoring platform with live poultry cycle tracking, farm analytics, and investor-facing dashboards that made the operation legible without a site visit.",
 
     summary:
       "A product prototype demonstrating how poultry operators and investors could monitor farm performance, operational activities and reporting through a unified digital experience.",
 
     problem:
-      "Poultry operations often depend on fragmented reporting, manual updates and disconnected information sources, making it difficult for operators and stakeholders to understand real-time farm performance.",
+      "Farm investors had no visibility into operations, relying solely on phone calls and PDFs, creating communication delays and investor friction.",
 
     role: "Full Stack Software Engineer",
 
@@ -710,13 +710,11 @@ export const projects: Project[] = [
     ],
 
     impact: [
-      "Interactive poultry monitoring experience",
+      "Built real-time poultry monitoring experience with live cycle data and farm health metrics",
 
-      "Investor transparency product concept",
+      "Created investor transparency dashboard showing operational performance without site visits",
 
-      "Responsive agricultural dashboard design",
-
-      "Animated operational storytelling interface",
+      "Architected the full stack: data layer, API, and interactive frontend from scratch",
     ],
 
     overview: [
@@ -884,13 +882,13 @@ export const projects: Project[] = [
     title: "EstateOS Security & Operations Platform",
 
     tagline:
-      "Multi-tenant estate security platform connecting residents, guards, managers and administrators through smart visitor access and operational workflows.",
+      "Gated estates were managing visitor access with paper registers and phone calls to residents. Built a multi-tenant access control platform where residents pre-approve visitors, guards scan QR codes at the gate, and managers review real-time audit logs across resident, guard, manager, and admin roles.",
 
     summary:
       "A security and estate management platform that digitizes visitor access, incident reporting, resident operations, emergency response and estate administration.",
 
     problem:
-      "Residential estates often depend on manual visitor registers, phone calls and disconnected communication channels, making access control, incident tracking and operational visibility difficult.",
+      "Gated estates were managing visitor access with paper registers and phone calls to residents, leading to security gaps and lack of traceability.",
 
     role: "Full Stack Software Engineer",
 
@@ -961,13 +959,11 @@ export const projects: Project[] = [
     ],
 
     impact: [
-      "Multi-tenant estate management architecture",
+      "Replaced paper visitor registers with QR-verified digital access across all entry points",
 
-      "Replaced manual registers with QR visitor verification",
+      "Built multi-tenant architecture supporting multiple estates with fully isolated data per tenant",
 
-      "Security event tracking system",
-
-      "Role-specific operational dashboards",
+      "Real-time audit log of every entry and exit visible to managers and administrators",
     ],
 
     overview: [

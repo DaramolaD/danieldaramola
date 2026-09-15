@@ -9,28 +9,28 @@ export function ValuesSection() {
       num: "01",
       title: "End-to-End Type Safety & Data Contracts",
       subtitle: "Schema-first engineering",
-      body: "From database tables to client forms, every payload is strictly typed and validated using TypeScript and Zod. This eliminates silent runtime bugs and makes API evolution predictable.",
+      body: "From database tables to client forms, every payload is strictly typed and validated using TypeScript and Zod. This eliminates silent runtime bugs and makes API evolution predictable, especially when the same schema powers five different user roles.",
       highlights: ["Python (FastAPI)", "Next.js & TypeScript", "PostgreSQL / Alembic", "MongoDB / Mongoose"],
     },
     {
       num: "02",
-      title: "Domain Modeling for Real-World Operations",
+      title: "Domain Modelling for Real-World Operations",
       subtitle: "Built for physical workflows",
-      body: "Whether handling fuel station dispensing logs, tourism booking multi-role profiles, or delivery fleet dispatch, I model software directly against real physical operations and edge cases.",
+      body: "Whether handling fuel station dispensing logs, tourism booking flows, or delivery fleet dispatch, I model the software directly against the physical operation, including the edge cases that only appear in the real world.",
       highlights: ["Multi-Tenant SaaS", "RBAC Permissions", "Flutterwave Payments", "Audit Workflows"],
     },
     {
       num: "03",
       title: "High-Density, Responsive Interfaces",
       subtitle: "Performance meets clarity",
-      body: "Dashboards with dozens of operational data points need to load instantly and stay readable. I build fast, accessible component systems that keep complex metrics digestible for operators.",
+      body: "Dashboards with 13 operational modules need to load instantly and stay readable for an operator checking figures on a phone. I build fast, accessible component systems that make complex data actionable instead of just visible.",
       highlights: ["TanStack Query & State", "Leaflet & Mapbox", "Radix UI & Tailwind", "Responsive Dashboards"],
     },
     {
       num: "04",
       title: "Maintainable & Team-Ready Codebases",
       subtitle: "Engineering discipline",
-      body: "Code should be clear, modular, and easy for any engineer to inherit. I avoid unnecessary framework bloat, establish clean module boundaries, and prioritize readability.",
+      body: "Code should be clear, modular, and easy for any engineer to inherit. I write the README I wish I had: clean module boundaries, documented architecture decisions, and a CI/CD pipeline on every project so the system runs smoothly without me.",
       highlights: ["Modular Services", "Vercel & Render CI/CD", "Offline-First Sync", "Clean Documentation"],
     },
   ];
@@ -59,7 +59,7 @@ export function ValuesSection() {
           </div>
           <FadeUp delay={0.15}>
             <p className="max-w-md text-sm leading-relaxed text-ink-muted">
-              How I approach architecture, code quality, and user experience to ensure systems remain dependable as they scale.
+              How I approach architecture, code quality, and delivery to ensure systems remain dependable as they scale, and readable when the next engineer inherits them.
             </p>
           </FadeUp>
         </div>

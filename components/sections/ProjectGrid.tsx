@@ -7,7 +7,7 @@ export function ProjectGrid() {
     <section id="work" className="bg-surface/60 py-32 md:py-44">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          label="03 — Selected work"
+          label="03 · Selected work"
           line1="A small set of projects, chosen"
           line2="for what they taught me."
         />

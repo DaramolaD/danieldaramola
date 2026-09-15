@@ -22,7 +22,7 @@ export function AboutSection() {
           <div className="mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-ink-muted">
             <FadeUp delay={0.1}>
               <p>
-                I&apos;m Daniel Daramola, a full-stack software engineer working with remote-first teams and high-growth startups globally. Over the past three years, I&apos;ve engineered production systems across PropTech, fuel station operations, logistics dispatch, and interactive SaaS tools.
+                I&apos;m Daniel Daramola, a full-stack software engineer building operational SaaS, multi-tenant platforms, and real-time systems. I take on complex domain workflows across PropTech, fuel retail operations, logistics dispatch, and interactive SaaS tools.
               </p>
             </FadeUp>
             <FadeUp delay={0.15}>

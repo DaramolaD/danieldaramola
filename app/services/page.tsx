@@ -30,7 +30,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={140}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
-              Pragmatic, end-to-end full-stack development backed by 3+ years of experience across logistics, PropTech, tourism, and fintech SaaS. Built with modern TypeScript, Python (FastAPI), React, and relational database systems.
+              Pragmatic, end-to-end full-stack development across logistics, PropTech, tourism, and fintech SaaS. Built with modern TypeScript, Python (FastAPI), React, and relational database systems.
             </p>
           </Reveal>
 

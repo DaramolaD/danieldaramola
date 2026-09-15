@@ -9,22 +9,22 @@ export function AboutSection2() {
     {
       step: "01",
       title: "Domain-Driven Discovery",
-      body: "Understand real user workflows and business constraints first. Translate messy operational requirements into clear technical specifications.",
+      body: "I start with the people closest to the problem, not the brief. Real operational constraints like a driver with no signal or a manager checking figures on a phone shape every technical decision before a line of code is written.",
     },
     {
       step: "02",
       title: "Typed & Predictable Architecture",
-      body: "Build with strict TypeScript contracts, modular APIs, and structured data stores so the application remains maintainable as features expand.",
+      body: "Strict TypeScript contracts from database to client form. Every payload validated with Zod, every API route typed end-to-end. Systems stay maintainable when the team grows or the feature scope changes.",
     },
     {
       step: "03",
       title: "Performant & Intuitive UX",
-      body: "Craft data-dense dashboards and client-facing interfaces that load fast, handle edge cases gracefully, and reduce user cognitive load.",
+      body: "Dashboards with 13 operational modules need to load instantly and stay readable for an operator under pressure. I build fast, accessible interfaces that make complex data actionable instead of just visible.",
     },
     {
       step: "04",
       title: "Production Discipline",
-      body: "Ship continuously with clean git workflows, meaningful error boundaries, observability, and straightforward deployment pipelines.",
+      body: "Clean git workflows, meaningful error boundaries, observability with Sentry, and CI/CD pipelines on every project. Code I hand off should run without me, and the next engineer should be able to jump in without a 3-hour onboarding call.",
     },
   ];
 
@@ -34,7 +34,7 @@ export function AboutSection2() {
       className="mx-auto max-w-[1360px] px-6 py-20 md:px-10 md:py-28"
     >
       <FadeUp>
-        <SectionLabel index="01">About & Approach</SectionLabel>
+        <SectionLabel index="01">About &amp; Approach</SectionLabel>
       </FadeUp>
 
       <div className="mt-8 grid gap-14 lg:grid-cols-12 lg:gap-16">
@@ -42,20 +42,20 @@ export function AboutSection2() {
           <FadeUp delay={0.1}>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.12] tracking-tight text-ink">
               Bridging technical execution with{" "}
-              <span className="italic text-accent">thoughtful systems architecture.</span>
+              <span className="italic text-accent">real operational understanding.</span>
             </h2>
           </FadeUp>
 
           <div className="mt-8 space-y-5 text-base leading-relaxed text-ink-muted">
             <FadeUp delay={0.15}>
               <p>
-                Over the past three years, I’ve designed and built software for startups and operational businesses. My work spans multi-tenant PropTech ecosystems, fuel station operations platforms, logistics portals, and interactive product prototypes.
+                I&apos;ve spent the last few years building operational software for businesses where something physical is happening: a delivery being dispatched, a property being sold, a fuel transaction being logged, or a tourist booking a guide. These aren&apos;t greenfield apps with clean data. They&apos;re messy domains with five user types, drivers on 3G, payments that cannot fail, and managers who need answers in real time.
               </p>
             </FadeUp>
 
             <FadeUp delay={0.2}>
               <p>
-                Rather than treating frontend and backend as isolated silos, I focus on the complete operational picture: designing robust database schemas, building typed API contracts, and crafting fluid, accessible user interfaces that make complex data actionable.
+                The pattern I&apos;ve learned: the hard part is almost never the code. It&apos;s understanding the workflow before writing a line of it. I do that by staying close to the people using the system, not just the people commissioning it. The result is software that actually gets used, not just shipped.
               </p>
             </FadeUp>
 

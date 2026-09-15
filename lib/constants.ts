@@ -1,15 +1,15 @@
 export const siteConfig = {
   name: "Daniel Daramola",
-  tagline: "Software Engineer | React, TypeScript, Python (FastAPI), MERN & SaaS Products",
+  tagline: "Full-Stack Engineer · Next.js · Node.js · FastAPI · SaaS Systems",
   description:
-    "Software engineer with 3+ years building SaaS products end-to-end: React/Next.js frontends backed by Node.js, Express, and Python (FastAPI) services, PostgreSQL, and MongoDB.",
+    "Full-stack engineer building operational SaaS, multi-tenant platforms, and real-time systems. Next.js, Node.js, Python (FastAPI), PostgreSQL, MongoDB.",
   heroStatus: "Full-Stack Software Engineer",
   heroHeadline: {
     line1: "Engineering products",
     line2: "that power real operations.",
   },
   heroBio:
-    "Full-stack engineer with 3+ years building end-to-end SaaS platforms, React/Next.js frontends, and Node.js / Python (FastAPI) backends. Experienced owning features from database schema design through production deployment.",
+    "I build full-stack systems that run real operations like logistics dispatch, estate management, fuel station platforms, and tourism marketplaces. Next.js, Node.js, and Python on the backend. Most of it owned end-to-end: schema design, API contracts, and the UI that operators actually use. I work best when the problem is still messy.",
   portraitCaption: "Daniel Daramola",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://danieldaramola.vercel.app",
   email: "dandaramola.d@gmail.com",

@@ -36,7 +36,7 @@ export function Contact() {
           </h2>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-canvas/70">
-            Whether you&apos;re looking to architect a new platform from zero, expand an existing product, or bring in full-stack horsepower for an upcoming roadmap sprint, let&apos;s talk.
+            I take on a small number of projects at a time, focused on operational SaaS, platform builds, or teams that need an engineer who can own architecture and execution. Tell me what you&apos;re working on. I reply within 24 hours. If I&apos;m not the right fit, I&apos;ll say so directly.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3.5">

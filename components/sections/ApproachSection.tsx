@@ -18,7 +18,7 @@ export function ApproachSection() {
           <div className="md:col-span-4">
             <FadeUp>
               <p className="text-xs uppercase tracking-[0.22em] text-ink-muted">
-                02 — How I work
+                02 · How I work
               </p>
             </FadeUp>
             <h2 className="mt-6 font-serif text-[clamp(1.875rem,4vw,3rem)] leading-[1.1] tracking-tight text-ink">

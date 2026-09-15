@@ -7,8 +7,8 @@ export function Experience() {
       role: "Founder & Product Engineer",
       company: "TransOpSync",
       period: "2026 - Present",
-      location: "Remote / Product Lead",
-      body: "Architecting a multi-tenant logistics SaaS platform for SMB delivery fleets. Designed dispatcher consoles, driver workflows, and live tracking experiences with offline-first sync and custom address parsing.",
+      location: "Remote / Founder",
+      body: "Architecting a multi-tenant logistics SaaS for SMB delivery fleets. Designed dispatcher consoles, driver mobile workflows, and live tracking with offline-first sync, conflict resolution on reconnect, and custom address parsing for Nigerian road networks.",
       stack: ["Next.js", "Node.js", "Supabase", "PostgreSQL/PostGIS", "Socket.io", "Mapbox"],
     },
     {
@@ -16,7 +16,7 @@ export function Experience() {
       company: "TechBrokers (StationMag)",
       period: "Mar 2026 - Present",
       location: "Remote / Contract",
-      body: "Built the fuel station operations platform for Sunbeth Energies across 4 user roles. Engineered a typed data layer for 13+ modules (pricing, transactions, inventory, audits) with export-ready reporting.",
+      body: "Built the fuel station operations platform for Sunbeth Energies across 4 user roles. Engineered a typed data layer for 13+ modules (pricing, transactions, inventory, audits) with export-ready reporting and real-time dashboard updates.",
       stack: ["Next.js", "React 19", "TypeScript", "TanStack Query", "Axios", "Recharts", "Tailwind CSS"],
     },
     {
@@ -24,7 +24,7 @@ export function Experience() {
       company: "ISEYAA & Ministry of Culture",
       period: "2026",
       location: "Remote / Contract",
-      body: "Engineered tourism & commerce marketplace end-to-end (guides, ticketing, marketplace). Implemented multi-role business profiles, Flutterwave payments, httpOnly JWT session auth, and Alembic DB migrations.",
+      body: "Built a tourism and commerce marketplace end-to-end covering guides, ticketing, business profiles, and marketplace listings. Implemented multi-role business profiles, Flutterwave payments, httpOnly JWT session auth, and Alembic DB migrations for a Python/FastAPI backend.",
       stack: ["Next.js", "TypeScript", "Python (FastAPI)", "PostgreSQL", "Flutterwave", "Render"],
     },
     {
@@ -32,7 +32,7 @@ export function Experience() {
       company: "GText Holdings (GText Projects)",
       period: "Dec 2024 - June 2026",
       location: "Full-Time",
-      body: "Built real estate SaaS ecosystem: GTextLand portal with Leaflet/GeoJSON plot maps and installment checkouts, GTextPay wallet workflows, and GTextFarm investor reporting dashboards.",
+      body: "Built real estate SaaS ecosystem: GTextLand portal with Leaflet/GeoJSON plot maps and instalment checkouts, GTextPay wallet and payment workflows, and GTextFarm investor reporting dashboards.",
       stack: ["Next.js", "TypeScript", "TanStack Query", "Leaflet", "React Hook Form", "Zod", "MongoDB"],
     },
     {
@@ -61,7 +61,7 @@ export function Experience() {
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-6 text-sm leading-relaxed text-ink-muted">
-                Each role focused on solving high-friction operational bottlenecks, building tools that teams and customers rely on daily.
+                Each role involved owning real operational workflows end-to-end, rather than just implementing features inside someone else&apos;s system.
               </p>
             </Reveal>
           </div>

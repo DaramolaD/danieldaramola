@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/constants";
 export const metadata = createMetadata({
   title: "About",
   description:
-    "Daniel Daramola | Software engineer with 3+ years experience building SaaS products across logistics, PropTech, and fintech.",
+    "Daniel Daramola | Full-stack engineer building operational SaaS, multi-tenant platforms, and real-time systems across logistics, PropTech, and fintech.",
   path: "/about",
 });
 
