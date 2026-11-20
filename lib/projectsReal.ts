@@ -11,6 +11,12 @@ import projectStationMag2 from "@/public/project/stationMag2.png";
 import projectStationMag3 from "@/public/project/stationMag3.png";
 import projectEstateOS from "@/public/project/project-fintech.jpg";
 import projectGTextFarm from "@/public/project/gtextFarm.png";
+import projectMonteHero from "@/public/project/montedoalecrim-hero.webp";
+import projectMontePlots from "@/public/project/montedoalecrim-plots.webp";
+import projectMonteLocation from "@/public/project/montedoalecrim-location.webp";
+import projectMontePayment from "@/public/project/montedoalecrim-payment.webp";
+import projectMonteVerify from "@/public/project/montedoalecrim-verify.webp";
+import projectMonteDayHere from "@/public/project/montedoalecrim-dayhere.webp";
 
 import { StaticImageData } from "next/image";
 
@@ -84,7 +90,7 @@ export type Project = {
   }[];
 };
 
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     slug: "sytemap",
 
@@ -1140,4 +1146,313 @@ export const projects: Project[] = [
 
     n: "04",
   },
+
+  {
+    slug: "monte-do-alecrim",
+
+    tag: "PropTech · Sales Web App",
+
+    name: "Monte do Alecrim",
+
+    title: "Monte do Alecrim Land Sales Web App",
+
+    tagline:
+      "Live sales site for a land company in the Algarve, Portugal. Buyers abroad pick a plot from drone footage, check prices and drive times, and send an enquiry straight to the sales team. I built it end to end in four days.",
+
+    summary:
+      "A Next.js 16 web app selling 23 building plots across three Algarve sites: an interactive drone plot picker, a live location map, a payment calculator and an enquiry pipeline to the sales inbox.",
+
+    problem:
+      "Most buyers of Algarve building land live abroad and can't walk the plots. Before they book a visit or pay a reservation, they need to see the exact plot, its price and status, how far it is from the airport and how to check the paperwork, on a phone, fast.",
+
+    role: "Full-stack engineer",
+
+    team: "Luxan Studios",
+
+    client: "Monte do Alecrim",
+
+    kind: "PropTech · Sales Web App",
+
+    year: "2026",
+
+    timeline: "November 2026",
+
+    status: "Live · AI chat and automation next",
+
+    image: projectMonteHero,
+
+    imageAlt: "Monte do Alecrim home page: Build your place in the Algarve sun",
+
+    liveUrl: "https://montedoalecrim.vercel.app/",
+
+    gallery: [
+      {
+        image: projectMontePlots,
+        alt: "Plot picker with an aerial view of plots coloured by status and a detail card for plot 06",
+      },
+      {
+        image: projectMonteLocation,
+        alt: "MapLibre map of Europe and the Algarve with the three sites and drive times",
+      },
+      {
+        image: projectMontePayment,
+        alt: "Payment calculator with plot, deposit and term choices",
+      },
+      {
+        image: projectMonteVerify,
+        alt: "Verification section listing land registry, tax record, planning status and independent lawyer",
+      },
+      {
+        image: projectMonteDayHere,
+        alt: "Full-screen time-of-day section showing the land at dawn",
+      },
+    ],
+
+    stack: [
+      "Next.js 16",
+
+      "React 19",
+
+      "TypeScript",
+
+      "Tailwind CSS 4",
+
+      "MapLibre GL",
+
+      "OpenStreetMap",
+
+      "Framer Motion",
+
+      "Resend",
+
+      "Vercel",
+    ],
+
+    techStack: [
+      "Next.js 16 (App Router, Turbopack)",
+
+      "React 19",
+
+      "TypeScript",
+
+      "Tailwind CSS 4",
+
+      "MapLibre GL",
+
+      "OpenFreeMap / OpenStreetMap / OSRM",
+
+      "Framer Motion",
+
+      "Resend email API",
+
+      "sharp (image pipeline)",
+
+      "Vercel",
+    ],
+
+    impact: [
+      "Built a drag-to-orbit plot picker over ~290 pre-rendered drone frames across 3 sites, with 23 plots traced as SVG polygons in drone, plan and sketch views",
+
+      "Shipped an interactive map on open data with zero paid APIs: MapLibre loads only when scrolled into view, so it adds nothing to the first screen",
+
+      "Built the enquiry flow with server-side validation, spam filtering and clear error handling, so no buyer enquiry gets silently lost",
+
+      "Built a scripted demo mode (8 scenes) that drives the live product for screen recordings, so marketing content is captured from the real app",
+    ],
+
+    overview: [
+      "Monte do Alecrim sells building plots across three sites in the Algarve, Portugal: a serviced community, an established village and bare land on the Atlantic coast. Buyers are mostly in the UK and Northern Europe.",
+
+      "Each section of the app answers one buyer question in the order they ask it: where the land is, what can be built, which plot, what it costs, how to check the papers and how buying works in Portugal.",
+
+      "I owned it end to end: architecture, content model, the plot and location maps, the calculator, the enquiry pipeline, motion, SEO and the demo tooling. The core app went from empty repo to working build in four days.",
+    ],
+
+    challenge: [
+      "Show each plot's exact boundary, size and status on real aerial imagery, interactively, on a phone.",
+
+      "Location sells land, but map SDKs with paid keys and heavy bundles would slow the first screen and add a running cost.",
+
+      "Every enquiry is a potential six-figure sale, so the form must never fail silently and must keep bots out.",
+
+      "Plot data, prices and copy change often, and must change without touching components.",
+
+      "Launch content needed clean, repeatable recordings of the live product, not mock-ups.",
+    ],
+
+    solution:
+      "A Next.js 16 app driven by typed content files. Plot polygons are traced once per site in a fixed coordinate space and drawn as SVG over a pre-rendered drone frame sequence. The map library is imported only when its section nears the viewport, on open tiles. Drive times are computed ahead of time from OpenStreetMap routing and stored as data. Enquiries go through one hardened API route to the sales inbox.",
+
+    approach: [
+      {
+        title: "Drone plot picker",
+
+        body: "Built from about 95 drone photos per site that rotate as you drag. Buyers tap a plot to see its size, price and availability. It runs smoothly on phones, where video scrubbing stutters.",
+      },
+
+      {
+        title: "Location map with no running cost",
+
+        body: "Used MapLibre with free OpenStreetMap tiles instead of Google Maps, so the client has no map bill. The map only loads when the visitor scrolls to it, which keeps the first screen fast.",
+      },
+
+      {
+        title: "Drive times calculated in advance",
+
+        body: "Routes to Faro airport, hospitals and beaches are calculated once and stored with the site data. The page doesn't rely on an outside service, and the numbers always match what sales tells buyers.",
+      },
+
+      {
+        title: "Reliable enquiry form",
+
+        body: "Enquiries are checked on the server, filtered for spam and emailed to the sales inbox with the buyer as reply-to. If sending fails, the buyer is shown WhatsApp and email instead.",
+      },
+
+      {
+        title: "Easy content updates",
+
+        body: "Plots, prices and FAQs live in data files, separate from the page code. Marking a plot as sold is a one-line change.",
+      },
+    ],
+
+    features: [
+      "Drag-to-orbit drone plot picker",
+
+      "Plan and sketch plot views",
+
+      "Availability, size and sea-view filters",
+
+      "Live location map with road routes and drive times",
+
+      "Flight paths from six European cities",
+
+      "Payment calculator",
+
+      "Visit, video-walk and document request forms",
+
+      "Scroll-linked time-of-day sequence",
+
+      "Skippable intro title sequence with a 3D CSS emblem",
+
+      "Scripted demo mode for recordings",
+
+      "Sitemap, robots and Open Graph images",
+    ],
+
+    responsibilities: [
+      "Architecture and content model",
+
+      "Interactive plot maps",
+
+      "MapLibre location map",
+
+      "Enquiry API and email delivery",
+
+      "Motion and the intro sequence",
+
+      "Image pipeline and performance",
+
+      "SEO and metadata",
+
+      "Demo tooling for content",
+    ],
+
+    highlights: [
+      {
+        title: "Drone plot picker",
+
+        body: "Drag to orbit the site through its drone frames, then tap a plot traced on the image to see its size, build area, price and status. Each plot is coloured green, amber or red by status.",
+      },
+
+      {
+        title: "Location map",
+
+        body: "Flies from Europe to the Algarve to the chosen site, drawing flight arcs as Bézier curves and animating the real road route to Faro airport. When one site is selected, the others shrink to dots so its landmarks stay readable.",
+      },
+
+      {
+        title: "Enquiry pipeline",
+
+        body: "Visit and document requests are validated, filtered for bots and emailed to the sales inbox through Resend's API, with the buyer set as reply-to so sales can answer in one click.",
+      },
+
+      {
+        title: "Demo director",
+
+        body: "A hidden ?demo= mode with eight scripted scenes: eased scrolling, a visible cursor and timed clicks that wait for drone frames to load. Launch videos are recorded from the live product, not mock-ups.",
+      },
+    ],
+
+    phases: [
+      {
+        title: "Content model and layout",
+
+        description:
+          "Typed content for sites, plots and copy, and the section order that follows a buyer's questions.",
+      },
+
+      {
+        title: "Maps and plots",
+
+        description:
+          "The drone plot picker, plot outlines per view and the MapLibre location map.",
+      },
+
+      {
+        title: "Enquiries and launch",
+
+        description:
+          "The enquiry API, SEO, Open Graph images, the demo mode and deployment to Vercel.",
+      },
+
+      {
+        title: "Next: AI chat and automation",
+
+        description:
+          "An AI assistant that answers buyer questions on the site, and automations for instant replies and follow-up.",
+      },
+    ],
+
+    outcomes: [
+      {
+        metric: "4 days",
+        label: "Empty repo to working core app",
+      },
+
+      {
+        metric: "23",
+        label: "Plots mapped across 3 sites",
+      },
+
+      {
+        metric: "0",
+        label: "Paid APIs: open map and routing data",
+      },
+
+      {
+        metric: "100",
+        label: "Lighthouse SEO and Best Practices",
+      },
+    ],
+
+    learnings: [
+      "Next time I'd generate plot outlines from survey coordinates instead of tracing them by hand, so they could follow the camera through every frame.",
+
+      "Enquiries should land in a database or CRM as well as an inbox. The automation phase needs that data, and it's cheaper to add on day one.",
+
+      "Building demo tooling into the product paid for itself: launch videos come from the real app, so they never drift from what buyers see.",
+    ],
+
+    n: "05",
+  },
 ];
+
+// Display order. Projects not listed here (e.g. "estateos") are hidden from the
+// site, sitemap and project pages, but their data is kept.
+const projectOrder = ["stationmag", "monte-do-alecrim", "sytemap", "gtextfarm"];
+
+export const projects: Project[] = projectOrder.map((slug, index) => {
+  const project = allProjects.find((p) => p.slug === slug);
+  if (!project) throw new Error(`Unknown project slug in projectOrder: ${slug}`);
+  return { ...project, n: String(index + 1).padStart(2, "0") };
+});
